@@ -7,6 +7,23 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+    <button onclick="displayBooks()">Display Books</button>
+    <button onclick="displayForm()">Display Form</button>
+    <form id="bookForm">
+      <div id='textInput'> 
+        <p><input type='text' id='title' name='title' placeholder='Title'></p>
+        <p><input type='text' id='author' name='author' placeholder='Author'></p>
+        <p><input type='text' id='pages' name='pages' placeholder='Pages'></p>
+      </div>
+      <div id='checkBox'>
+        <p><label >Read: </label><input type='checkbox' id='read' name='read' value='yes'></p>
+      </div>
+      <button type='submit' form='form' id='addBookBtn'>Add</button>
+    </form>
+    <div id="displayArea">
+      
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
