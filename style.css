@@ -1,7 +1,11 @@
 #bookForm {
   visibility: hidden;
+  size: 100%;
 }
 
+#displayArea {
+  size: 100%;
+}
 /* #testid {
   color: red;
 }  */
