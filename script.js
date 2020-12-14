@@ -32,17 +32,34 @@ function displayBooks() {
     let pages = `<h5>Pages: ${item.pages}</h4>`;
     let read = `<h5>read: ${item.read}</h>`;
     // use indexOf to access index
-    let bookId = `<h5>index: ${myLibrary.indexOf(
-      item
-    )}<button onclick="deleteBook(this)">TEST</button>`;
+    let bookId = `<h5>index: ${myLibrary.indexOf(item)}`;
+
+    let removeBtn = document.createElement("button");
+    removeBtn.innerHTML = "Delete Book";
+
+    removeBtn.addEventListener("click", () => {
+      myLibrary.splice(myLibrary.indexOf(item), 1);
+      displayBooks();
+    });
+
+    let markReadBtn = document.createElement("button");
+    markReadBtn.innerHTML = "Mark Read";
+
+    markReadBtn.addEventListener("click", () => {
+      item.toggleRead();
+      displayBooks();
+    });
+
     // get value of the element triggering the button
     subPara.innerHTML = `${title}${author}${pages}${read}${bookId}`;
     target.append(subPara);
+    target.append(markReadBtn);
+    target.append(removeBtn);
   });
 }
 
 function deleteBook(element) {
-  console.log(element);
+  console.log(element.value);
 }
 
 function displayForm() {
@@ -63,3 +80,11 @@ function formSubmit() {
 }
 
 console.log(myLibrary);
+
+Book.prototype.toggleRead = function () {
+  this.read == true ? (this.read = false) : (this.read = true);
+};
+
+Book.prototype.toggleRead = function () {
+  this.read == true ? (this.read = false) : (this.read = true);
+};
